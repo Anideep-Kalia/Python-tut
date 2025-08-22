@@ -4,6 +4,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+import requests
 
 arr = np.array([1,2,3,4])
 arr=arr
@@ -44,3 +45,10 @@ model.fit(X_train, y_train)
 
 pred = model.predict(X_test)
 print("Accuracy:", accuracy_score(y_test, pred))
+
+#--------------------------------
+
+# Requests 
+response = requests.get("https://api.github.com/users/openai")
+data = response.json()
+print(data["name"], data["public_repos"])
